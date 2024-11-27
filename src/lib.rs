@@ -28,7 +28,7 @@ pub struct L9Event {
     pub mac: String,
     pub vendor: String,
     #[serde(rename = "transport")]
-    pub transports: Vec<String>,
+    pub transports: Option<Vec<String>>,
     pub protocol: String,
     pub http: L9HttpEvent,
     pub summary: String,
@@ -37,7 +37,7 @@ pub struct L9Event {
     pub ssh: L9SSHEvent,
     pub service: L9ServiceEvent,
     pub leak: L9LeakEvent,
-    pub tags: Vec<String>,
+    pub tags: Option<Vec<String>>,
     pub geoip: GeoLocation,
     pub network: Network,
 }
@@ -49,7 +49,7 @@ pub struct L9HttpEvent {
     pub status: i32,
     pub length: i64,
     #[serde(rename = "header")]
-    pub headers: HashMap<String, String>,
+    pub headers: Option<HashMap<String, String>>,
     pub title: String,
     pub favicon_hash: String,
 }
@@ -94,7 +94,7 @@ pub struct DatasetSummary {
     pub size: i64,
     pub collections: i64,
     pub infected: bool,
-    pub ransom_notes: Vec<String>,
+    pub ransom_notes: Option<Vec<String>>,
 }
 
 #[derive(Debug, Serialize, Deserialize)]
@@ -102,7 +102,7 @@ pub struct Software {
     pub name: String,
     pub version: String,
     pub operating_system: Option<String>,
-    pub modules: Vec<SoftwareModule>,
+    pub modules: Option<Vec<SoftwareModule>>,
     pub fingerprint: String,
 }
 
@@ -125,7 +125,7 @@ pub struct ServiceCredentials {
 #[derive(Debug, Serialize, Deserialize)]
 pub struct Certificate {
     pub cn: String,
-    pub domain: Vec<String>,
+    pub domain: Option<Vec<String>>,
     pub fingerprint: String,
     pub key_algo: String,
     pub key_size: i32,
