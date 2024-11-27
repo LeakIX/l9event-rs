@@ -1,8 +1,8 @@
-use l9event::L9Event;
+use l9format::L9Event;
 use std::fs;
 
 #[test]
-fn test_deserialize_l9event_from_file() {
+fn test_deserialize_l9format_from_file() {
     // Path to the JSON file
     let file_path = "tests/data/sample_event.json";
 

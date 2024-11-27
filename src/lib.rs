@@ -1,3 +1,6 @@
+//! l9format is a schema declaration targeted at interoperability between
+//! network recon tools used at [LeakIX](https://leakix.net).
+//
 use chrono::{DateTime, Utc};
 use serde::{Deserialize, Serialize};
 use std::collections::HashMap;
